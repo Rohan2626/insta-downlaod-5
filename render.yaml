@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: instasaver-backend
+    runtime: docker
+    rootDir: backend
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: NODE_VERSION
+        value: 18
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false # User must provide this manually if needed, or we use sqlite in a volume if persistent
+    disk:
+      name: data
+      mountPath: /var/lib/data
+      sizeGB: 1
