@@ -12,7 +12,4 @@ services:
         generateValue: true
       - key: DATABASE_URL
         sync: false # User must provide this manually if needed, or we use sqlite in a volume if persistent
-    disk:
-      name: data
-      mountPath: /var/lib/data
-      sizeGB: 1
+
