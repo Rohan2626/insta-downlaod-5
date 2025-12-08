@@ -23,8 +23,20 @@ app.set('trust proxy', 1);
 // Middleware
 app.use(helmet());
 
-const allowedOrigins = process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : ['http://localhost:3000', 'http://localhost:5173'];
-app.use(cors({ origin: allowedOrigins, credentials: true }));
+// CORS configuration
+const allowedOrigins = process.env.CORS_ORIGIN
+    ? process.env.CORS_ORIGIN.split(',').map(origin => origin.trim())
+    : ['http://localhost:3000', 'http://localhost:5173'];
+
+console.log('CORS allowed origins:', allowedOrigins);
+
+app.use(cors({
+    origin: allowedOrigins,
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 app.use(express.json());
 app.use(morgan('combined'));
 
