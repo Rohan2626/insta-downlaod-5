@@ -12,7 +12,7 @@ Click the button below to deploy the backend to Render. It will automatically co
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/2607mray-cmd/instasaver-pro-rw)
 
-**Note**: You will need to provide `JWT_SECRET` in the dashboard if it's not auto-generated.
+**Note**: You will need to provide `JWT_SECRET` in the dashboard if it's not auto-generateds.
 
 ## Local Development
 
